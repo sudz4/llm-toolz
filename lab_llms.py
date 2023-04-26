@@ -54,3 +54,26 @@ with open("catena_out_NEW", "w") as file:
 # EXAMPLE -> if you need to append later
 # with open("output.txt", "a") as file:
 #     file.write(llm_output)
+
+"""
+Notes: using .env
+find_dotenv(): This function searches for a .env file in the current directory and its parent directories, recursively. 
+-It returns the path to the first .env file it finds. 
+-This is useful when you have a project with multiple nested directories and you want to locate the .env file without hardcoding its path.
+
+load_dotenv(): This function reads the contents of the .env file and loads the key-value pairs as environment variables. 
+These environment variables can then be accessed using os.environ in your Python code. 
+The load_dotenv() function takes the path of the .env file as its argument.
+
+"""
+
+# --------------------------------------------------------------
+# Prompt Templates: Manage prompts for LLMs
+# --------------------------------------------------------------
+
+prompt = PromptTemplate(
+    input_variables=["product"],
+    template="What is a good name for a company that makes {product}?",
+)
+
+prompt.format(product="Smart Apps using Large Language Models (LLMs)")
