@@ -72,12 +72,29 @@ The load_dotenv() function takes the path of the .env file as its argument.
 # Prompt Templates: Manage prompts for LLMs
 # --------------------------------------------------------------
 
-# prompt = PromptTemplate(
-#     input_variables=["product"],
-#     template="What is a good name for a company that makes {product}?",
-# )
+prompt = PromptTemplate(
+    input_variables=[
+    "module", # i.e. ITSM
+    "platform", 
+    "release_version"],
 
-# prompt.format(product="Smart Apps using Large Language Models (LLMs)")
+    template="""
+    For the {release_version} release;
+    list all ServiceNow {module} capabilities,
+    list all ServiceNow {platform} capabilies.
+    """
+)
+
+prompt.format(module="IT Service Management",
+              platform="Now Platform",
+              release_version="Utah")
+
+chain = LLMChain(llm=llm, prompt=prompt)
+print(chain.run(
+    """My company is deploying ServiceNow {module}.
+    We are also deploying core {platform} configurations and components, 
+    as well as other {platform} capabilites."""
+))
 
 # --------------------------------------------------------------
 # Chains: Combine LLMs and prompts in multi-step workflows
