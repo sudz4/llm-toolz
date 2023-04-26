@@ -41,7 +41,8 @@ import os
 # --------------------------------------------------------------
 
 llm = OpenAI(model_name="text-davinci-003")
-prompt = "Write a poem about the smallest shark to ever live"
+# prompt = "Write me a poem about the tiniest shark to ever live."
+prompt = "Write me a story about how the software company ServiceNow was founded."
 
 #prints to termnal
 llm_output = llm(prompt)
@@ -71,9 +72,25 @@ The load_dotenv() function takes the path of the .env file as its argument.
 # Prompt Templates: Manage prompts for LLMs
 # --------------------------------------------------------------
 
-prompt = PromptTemplate(
-    input_variables=["product"],
-    template="What is a good name for a company that makes {product}?",
-)
+# prompt = PromptTemplate(
+#     input_variables=["product"],
+#     template="What is a good name for a company that makes {product}?",
+# )
 
-prompt.format(product="Smart Apps using Large Language Models (LLMs)")
+# prompt.format(product="Smart Apps using Large Language Models (LLMs)")
+
+# --------------------------------------------------------------
+# Chains: Combine LLMs and prompts in multi-step workflows
+# --------------------------------------------------------------
+
+
+
+
+# # --------------------------------------------------------------
+# # Agents: Dynamically Call Chains Based on User Input
+# # --------------------------------------------------------------
+
+
+# # --------------------------------------------------------------
+# # Memory: Add State to Chains and Agents
+# # --------------------------------------------------------------
