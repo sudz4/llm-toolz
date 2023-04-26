@@ -12,6 +12,9 @@ source llm_venv/bin/activate
 
 4-create new environment vars if you want
 
+* also install the code shell command form the terminal.
+set your venv and cd to the directory and then open vs code
+-write the shell command 'code' in the computer terminal
 """
 
 # import libs
@@ -24,3 +27,11 @@ from langchain.agents import AgentType
 from langchain.agents.load_tools import get_all_tool_names
 from langchain import ConversationChain
 from langchain.utilities import SerpAPIWrapper
+
+# import AND load KEY vars
+from dotenv import load_dotenv, find_dotenv # import -> reads the contents of the .env file and loads the key
+load_dotenv(find_dotenv()) # load KEYs (your environment vars)
+
+# you can access your KEY vars and environment vars when you need to
+import os
+# api_KEY = os.environ['OPEN_API_KEY']
