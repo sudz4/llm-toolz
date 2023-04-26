@@ -35,3 +35,22 @@ load_dotenv(find_dotenv()) # load KEYs (your environment vars)
 # you can access your KEY vars and environment vars when you need to
 import os
 # api_KEY = os.environ['OPEN_API_KEY']
+
+# --------------------------------------------------------------
+# LLMs: Get predictions from a language model
+# --------------------------------------------------------------
+
+llm = OpenAI(model_name="text-davinci-003")
+prompt = "Write a poem about the smallest shark to ever live"
+
+#prints to termnal
+llm_output = llm(prompt)
+print(llm_output)
+
+# saves output to file in directory
+with open("catena_out_NEW", "w") as file:
+    file.write(llm_output)
+
+# EXAMPLE -> if you need to append later
+# with open("output.txt", "a") as file:
+#     file.write(llm_output)
