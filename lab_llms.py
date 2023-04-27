@@ -104,7 +104,14 @@ print(chain.run({
 # Chains: Combine LLMs and prompts in multi-step workflows
 # --------------------------------------------------------------
 
+# llm = OpenAI()
+# prompt = PromptTemplate(
+#     input_variables=["product"],
+#     template="What is a good name for a company that makes {product}?",
+# )
 
+# chain = LLMChain(llm=llm, prompt=prompt)
+# print(chain.run("AI Chatbots for Dental Offices"))
 
 
 # # --------------------------------------------------------------
