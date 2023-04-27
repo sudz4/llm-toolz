@@ -40,21 +40,25 @@ import os
 # LLMs: Get predictions from a language model
 # --------------------------------------------------------------
 
+# SET MODEL NAME store as object llm
 llm = OpenAI(model_name="text-davinci-003")
-# prompt = "Write me a poem about the tiniest shark to ever live."
-prompt = "Write me a story about how the software company ServiceNow was founded."
 
-#prints to termnal
-llm_output = llm(prompt)
-print(llm_output)
+# # prompt = "Write me a poem about the tiniest shark to ever live."
+# prompt = "Write me a story about how the software company ServiceNow was founded."
 
-# saves output to file in directory
-with open("catena_out_NEW", "w") as file:
-    file.write(llm_output)
+# #prints to termnal
+# llm_output = llm(prompt)
+# print(llm_output)
 
-# EXAMPLE -> if you need to append later
-# with open("output.txt", "a") as file:
+# # saves output to file in directory
+# with open("catena_out_NEW", "w") as file:
 #     file.write(llm_output)
+
+"""
+EXAMPLE -> if you need to append later
+# # with open("output.txt", "a") as file:
+# #     file.write(llm_output)
+"""
 
 """
 Notes: using .env
@@ -90,11 +94,11 @@ prompt.format(module="IT Service Management",
               release_version="Utah")
 
 chain = LLMChain(llm=llm, prompt=prompt)
-print(chain.run(
-    """My company is deploying ServiceNow {module}.
-    We are also deploying core {platform} configurations and components, 
-    as well as other {platform} capabilites."""
-))
+print(chain.run({
+    "module": "IT Service Management",
+    "platform": "Now Platform",
+    "release_version": "Utah"
+}))
 
 # --------------------------------------------------------------
 # Chains: Combine LLMs and prompts in multi-step workflows
